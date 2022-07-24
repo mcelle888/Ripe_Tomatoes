@@ -16,13 +16,5 @@ If everything works fine let's go with the tasks to set up the authentication:
 - Create the ```/auth/signup``` and ```/auth/signin``` POST routes to sign up and sign in users. The response of this requests should return a jwt token.
 - Make sure new users are added to the database, with the hash password.
 - Create POST and DELETE methods for Actors and Movies. The routes need to include an id parameter to find the items in the database. Only authenticated users are able to do this actions. Handle the wrong requests with meaningful messages for the user (not authenticated and wrong id)
-  
-Back to the flask application these are tasks you need to complete the challenge:
-
-- create the connection to the database you have just created. (Remember to install all the needed packages and then to store them in requirements.txt)
-- Create the Movie and Actor models. From each movie we'd like to store the id, title, genre, length(in minutes) and release year. From each actor we'd like to store the id, first and last name, gender, country and date of birth. Feel free to add more attributes to each model, but don't add relationships between movies and actors, we'll work on this in further lessons.
-- Create the cli commands that create and drop the tables.
-- Create the cli command that seeds both tables. Seed them with at least two movies and 4 actors
-- Create two routes ```/movies``` and ```/actors``` that print the information stored in the database in JSON format when there is a GET method request.
 
 Challenge completed when an authenticated user is able to create and delete movies and actors, but also when a non authenticated user is not allowed to do that.

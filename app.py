@@ -4,6 +4,7 @@ app = Flask(__name__)
 from flask_marshmallow import Marshmallow
 ma = Marshmallow(app)
 
+
 ## DB CONNECTION AREA
 
 from flask_sqlalchemy import SQLAlchemy 
