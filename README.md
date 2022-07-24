@@ -1,4 +1,4 @@
-# ORM-challenge
+# Flask authentication challenge
 
 The purpose of this challenge is to add authentication to the ripe tomatoes app. The provided code already has the db connection, Movie and Actor models and schemas, and the routes to get them.
 
