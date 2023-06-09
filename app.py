@@ -4,7 +4,6 @@ app = Flask(__name__)
 from flask_marshmallow import Marshmallow
 ma = Marshmallow(app)
 
-
 ## DB CONNECTION AREA
 
 from flask_sqlalchemy import SQLAlchemy 
@@ -82,7 +81,7 @@ def drop_db():
 # MODELS AREA
 
 class Movie(db.Model):
-    __tablename__= "MOVIES"
+    __tablename__= "movies"
     id = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String())
     genre = db.Column(db.String())
@@ -90,7 +89,7 @@ class Movie(db.Model):
     year = db.Column(db.Integer())
 
 class Actor(db.Model):
-    __tablename__= "ACTORS"
+    __tablename__= "actors"
     id = db.Column(db.Integer,primary_key=True)  
     first_name = db.Column(db.String())
     last_name = db.Column(db.String())
@@ -122,12 +121,12 @@ def hello():
 
 @app.route("/movies", methods=["GET"])
 def get_movies():
-    movies_list = Movie.query.all()
-    result = movies_schema.dump(movies_list)
-    return jsonify(result)
+    stmt = db.select(Movie)
+    movies = db.session.scalars(stmt)
+    return movies_schema.dump(movies)
 
 @app.route("/actors", methods=["GET"])
 def get_actors():
-    actors_list = Actor.query.all()
-    result = actors_schema.dump(actors_list)
-    return jsonify(result)
+    stmt = db.select(Actor)
+    actors = db.session.scalars(stmt)
+    return actors_schema.dump(actors)
